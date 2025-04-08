@@ -7,8 +7,6 @@ import LandingPage from './components/LandingPage';
 import Layout from './components/Layout';
 
 function App() {
-  const token = localStorage.getItem('token');
-
   return (
     <Router>
       <Layout>
@@ -16,7 +14,8 @@ function App() {
           <Route path="/" element={<LandingPage />} />
           <Route path="/register" element={<RegisterForm />} />
           <Route path="/login" element={<LoginForm />} />
-          <Route path="/profile" element={token ? <Profile /> : <Navigate to="/login" />} />
+          {/* Remove token check here; Profile component will handle its auth */}
+          <Route path="/profile" element={<Profile />} />
           <Route path="*" element={<Navigate to="/" />} />
         </Routes>
       </Layout>

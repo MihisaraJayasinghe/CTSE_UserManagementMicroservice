@@ -11,10 +11,10 @@ export default function Layout({ children }) {
   };
 
   return (
-    <div>
-      <nav className="bg-gray-900 text-white p-4 shadow">
-        <div className="max-w-4xl mx-auto flex justify-between items-center">
-          <Link to="/" className="text-xl font-bold text-blue-400">UserAuth</Link>
+    <div className="min-h-screen flex flex-col">
+      <nav className="bg-gray-900 text-white p-4 shadow w-full">
+        <div className="max-w-6xl mx-auto flex justify-between items-center">
+          <Link to="/" className="text-xl font-bold text-blue-400">Apex Connect</Link>
           <div className="space-x-4">
             {token ? (
               <>
@@ -30,7 +30,9 @@ export default function Layout({ children }) {
           </div>
         </div>
       </nav>
-      <main className="p-6 bg-gray-100 min-h-screen">{children}</main>
+      <main className="w-full max-w-6xl mx-auto px-4 py-8">
+        {children}
+      </main>
     </div>
   );
 }
