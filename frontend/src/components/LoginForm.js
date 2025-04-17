@@ -13,7 +13,7 @@ export default function LoginForm() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const res = await axios.post('http://localhost:4000/api/auth/login', form);
+      const res = await axios.post(`${process.env.REACT_APP_API_URL}/auth/login`, form);
       localStorage.setItem('token', res.data.token);
       alert('Login successful!');
       navigate('/profile');
