@@ -13,7 +13,7 @@ export default function Profile() {
       return;
     }
 
-    axios.get('http://localhost:4000/api/auth/profile', {
+    axios.get(`${process.env.REACT_APP_API_URL}/api/auth/profile`, {
       headers: {
         Authorization: `Bearer ${token}`
       }

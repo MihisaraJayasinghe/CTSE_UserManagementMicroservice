@@ -13,7 +13,7 @@ export default function RegisterForm() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await axios.post('http://localhost:4000/api/auth/register', form);
+      await axios.post(`${process.env.REACT_APP_API_URL}/api/auth/register`, form);
       alert('Registration successful! Redirecting to login...');
       navigate('/login');
     } catch (err) {
