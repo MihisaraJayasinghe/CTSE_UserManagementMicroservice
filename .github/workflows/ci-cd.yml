@@ -23,13 +23,24 @@ jobs:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
 
-      - name: Build & push Auth image
+      - name: Build & push Auth (backend) image
         uses: docker/build-push-action@v4
         with:
           context: ./Backend
           push: true
           tags: ${{ secrets.DOCKERHUB_USERNAME }}/ctse-auth:latest
 
-      - name: Trigger Render deploy
+      - name: Build & push Frontend image
+        uses: docker/build-push-action@v4
+        with:
+          context: ./frontend
+          push: true
+          tags: ${{ secrets.DOCKERHUB_USERNAME }}/ctse-frontend:latest
+
+      - name: Trigger Render backend deploy
         run: |
           curl -X POST "${{ secrets.RENDER_AUTH_DEPLOY_HOOK }}"
+
+      - name: Trigger Render frontend deploy
+        run: |
+          curl -X POST "${{ secrets.RENDER_FRONTEND_DEPLOY_HOOK }}"
