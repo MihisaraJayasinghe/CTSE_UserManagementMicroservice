@@ -13,6 +13,7 @@ export default function Profile() {
       return;
     }
 
+    // test for cicd
     axios.get(`${process.env.REACT_APP_API_URL}/api/auth/profile`, {
       headers: {
         Authorization: `Bearer ${token}`
