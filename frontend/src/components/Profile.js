@@ -12,6 +12,7 @@ export default function Profile() {
       navigate('/login');
       return;
     }
+    //testing for ci cd
 
     // test for cicd
     axios.get(`${process.env.REACT_APP_API_URL}/api/auth/profile`, {

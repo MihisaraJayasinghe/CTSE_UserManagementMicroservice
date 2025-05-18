@@ -21,9 +21,10 @@ app.use(limiter);
 
 // 🛡️ CORS Middleware
 app.use(cors({
-  origin: 'http://localhost:3000',
-  methods: ['GET', 'POST', 'PUT', 'DELETE'],
-  allowedHeaders: ['Content-Type', 'Authorization']
+  origin: 'http://localhost:3000' ,
+
+  methods: ['GET', 'POST', 'PUT', 'DELETE'] ,
+  allowedHeaders: ['Content-Type', 'Authorization' ]
 }));
 
 // 📦 API Routes
@@ -34,3 +35,18 @@ connectDB();
 
 const PORT = process.env.PORT || 4000;
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
